@@ -20,6 +20,19 @@ class HashTable {
 		this.data[address].push([key, value]);
 		return this.data;
 	}
+
+	get(key) {
+		const address = this.hashMethod(key);
+		const currentBucket = this.data[address];
+		if (currentBucket) {
+			for (let index = 0; index < currentBucket.length; index++) {
+				if (currentBucket[index][0] === key) {
+					return currentBucket[index][1];
+				}
+			}
+		}
+		return undefined;
+	}
 }
 
 const myHashTable = new HashTable(50);
