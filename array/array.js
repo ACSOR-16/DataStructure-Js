@@ -59,21 +59,21 @@ class MyArray{
     this.length++;
     return this.length;
   }
-  
+
   shift(){
     if(this.length === 0){
-      return undefined
+      return undefined;
     }
 
-    const itemDeleted = this.data[0]
+    const itemDeleted = this.data[0];
 
     for (let i = 0; i < this.length - 1; i++) {
-      this.data[i] = this.data[i + 1]
+      this.data[i] = this.data[i + 1];
     }
 
-    this.length--
-    delete this.data[this.length]
-    return itemDeleted
+    this.length--;
+    delete this.data[this.length];
+    return itemDeleted;
   }
   
 
