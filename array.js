@@ -39,6 +39,47 @@ class MyArray{
     this.length--;
   }
 
+  unshift(item){
+    if(!item){
+      return this.length;
+    }
+
+    if(this.length === 0){
+      this.data[0] = item;
+      this.length++;
+      return this.length;
+    }
+    
+    for(let i = this.length; i > 0; i--){
+      this.data[i] = this.data[i - 1];
+    }
+    
+    this.data[0] = item;
+
+    this.length++;
+    return this.length;
+  }
+  
+  shift(){
+    if(this.length === 0){
+      return undefined
+    }
+
+    const itemDeleted = this.data[0]
+
+    for (let i = 0; i < this.length - 1; i++) {
+      this.data[i] = this.data[i + 1]
+    }
+
+    this.length--
+    delete this.data[this.length]
+    return itemDeleted
+  }
+  
+
 }
 
 const array = new MyArray();
+array.push('oscar');
+array.push('Wilfredo');
+console.log(array);
